@@ -20,7 +20,8 @@ export default async function handler(
     });
   }
 
-  const { url }: RequestData = req.body;
+  const parsedBody = JSON.parse(req.body);
+  const { url } = parsedBody as RequestData;
   const { host } = req.headers;
   const { shortCode, shortUrl } = generateShortUrl(host as string);
 
@@ -45,7 +46,6 @@ export default async function handler(
         originalUrl: url,
       },
     });
-
     if (originalUrl) return originalUrl;
 
     // create a new shortened URL
@@ -68,7 +68,6 @@ export default async function handler(
         },
       },
     });
-
     return newUrl;
   });
 
@@ -78,7 +77,7 @@ export default async function handler(
     data: {
       originalUrl: result.originalUrl,
       shortUrl: result.shortUrl,
-      code: result.urlCode,
+      urlCode: result.urlCode,
     },
   });
 }
