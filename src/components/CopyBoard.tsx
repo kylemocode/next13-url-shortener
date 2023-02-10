@@ -2,6 +2,8 @@
 
 import { useRef, useState, FormEvent } from 'react';
 
+import { API_URL } from '@/libs/generateShortUrl';
+
 type CopyBoardProps = {
   urlCode: string;
 };
@@ -34,7 +36,7 @@ export default function CopyBoard({ urlCode }: CopyBoardProps) {
         <input
           type='text'
           className='border border-solid p-4 rounded-l-lg w-full'
-          value={`${process.env.NEXT_PUBLIC_API_URL}/api/${urlCode}`}
+          value={`${API_URL}/api/${urlCode}`}
           ref={inputRef}
           readOnly
         />
