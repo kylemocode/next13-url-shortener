@@ -1,4 +1,5 @@
 import 'client-only';
+/* reference: https://beta.nextjs.org/docs/rendering/server-and-client-components#keeping-server-only-code-out-of-client-components-poisoning */
 
 export async function shortenUrl(url: string) {
   const res = await fetch(
