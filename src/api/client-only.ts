@@ -6,6 +6,7 @@ export async function shortenUrl(url: string) {
     {
       method: 'POST',
       body: JSON.stringify({ url }),
+      cache: 'no-store',
     }
   );
 

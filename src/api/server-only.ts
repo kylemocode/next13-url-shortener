@@ -5,6 +5,7 @@ export async function getAnalyticCount(urlCode: string) {
     `${process.env.NEXT_PUBLIC_API_URL}/api/analytic/${urlCode}`,
     {
       method: 'GET',
+      cache: 'no-store',
     }
   );
 
