@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next13-URL-Shortener
+
+[![SonarCloud Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kylemocode_next13-url-shortener&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=kylemocode_next13-url-shortener)
 
 ## Getting Started
 
