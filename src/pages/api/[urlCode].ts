@@ -54,6 +54,7 @@ export default async function handler(
       });
     }
 
-    return res.status(301).redirect(result.originalUrl);
+    // Use `Moved Temporarily` status code in order to get analytic data
+    return res.status(302).redirect(result.originalUrl);
   }
 }
