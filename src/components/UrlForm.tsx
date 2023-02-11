@@ -2,12 +2,14 @@
 
 import { useState, useCallback, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import { isWebUri } from 'valid-url';
 
 import { shortenUrl } from '@/api/client-only';
 
 export default function ShortForm() {
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [isInvalidUrlError, setIsInvalidUrlError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [originalUrl, setOriginalUrl] = useState<string | null>(null);
 
@@ -15,6 +17,14 @@ export default function ShortForm() {
     e.preventDefault();
 
     if (originalUrl) {
+      if (!isWebUri(originalUrl)) {
+        setIsInvalidUrlError(true);
+        setTimeout(() => {
+          setIsInvalidUrlError(false);
+        }, 2000);
+        return;
+      }
+
       setLoading(true);
       const { data, statusCode, error } = await shortenUrl(originalUrl);
 
@@ -51,6 +61,11 @@ export default function ShortForm() {
         {error && (
           <div className='text-xs text-pink-600 my-2 absolute top-14'>
             {error}
+          </div>
+        )}
+        {isInvalidUrlError && (
+          <div className='text-xs text-pink-600 my-2 absolute top-14'>
+            Invalid URL (Must start with http or https)
           </div>
         )}
       </div>

@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/libs/index';
-import { url } from 'inspector';
 
 export default async function handler(
   req: NextApiRequest,
