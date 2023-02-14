@@ -53,7 +53,7 @@ As for CD, the application will deploy to vercel platform when the new code merg
 
 ### ID generator
 
-use `nanoid` as ID generator, which may not occur collision (better than `uuid`)
+use `nanoid` as ID generator, which may not occur collision easily (better than `uuid`)
 
 ![](https://i.imgur.com/uCjRRXh.png)
 
