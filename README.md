@@ -51,6 +51,14 @@ I also integrated SonarCloud to scan the code quality of the repo. It will trigg
 
 As for CD, the application will deploy to vercel platform when the new code merged into master branch.
 
+### ID generator
+
+use `nanoid` as ID generator, which may not occur collision (better than `uuid`)
+
+![](https://i.imgur.com/uCjRRXh.png)
+
+But I may optimize this probrem in the future.
+
 ### Commit Message
 
 All commit message is started with emoji from [gitmoji](https://gitmoji.dev/) so that we can easily identify the category of each task, and the message format also follow the Conventional Commits.
